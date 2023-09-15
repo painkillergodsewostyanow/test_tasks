@@ -1,8 +1,6 @@
-# test_tasks
+http://127.0.0.1:8000/api/v1/rates?from=USD&to=RUB&value=1
 
-http://127.0.0.1:8000/api/v1/rates?from=&to=&value=
-
-## Задание:
+# Задание:
 
 Написать сервис "Конвертер валют" который работает по REST-API.
 Пример запроса:

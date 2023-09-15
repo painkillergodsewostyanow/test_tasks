@@ -21,7 +21,7 @@ class ConvertorValuta:
         rates = json.loads(response.text)['rates']
 
         if len(rates) < 2:
-            raise ValueError('Валюта не найдена')
+            raise ValueError('Одна из валют не найдена')
 
         return rates
 

@@ -10,18 +10,21 @@ class ConvertAPIView(APIView):
     @staticmethod
     def _validate_get_data(from_val, to_val, value):
 
+        """ Проверяет введенные в get запросе данные """
+
+        if not from_val or not to_val or not value:
+            raise ValueError('Указанна не вся необходимая информация')
+
         try:
             float(value)
         except ValueError:
             raise ValueError("некоректно указанно количество конвертируемой валюты")
 
         if len(from_val) != 3 or len(to_val) != 3:
-            raise ValueError(
-                'Некоректно указан буквенный код валюты, должен состоять из 3 символов'
-            )
+            raise ValueError('Некоректно указан буквенный код валюты, должен состоять из 3 символов')
 
         if not from_val.isalpha() or not to_val.isalpha():
-            raise ValueError('код должен быть указан в латинскими буквами')
+            raise ValueError('код должен быть указан буквенными символами')
 
     def get(self, request, *args, **kwargs):
 
